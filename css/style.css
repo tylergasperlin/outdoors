@@ -39,9 +39,9 @@ body {
 }
 
 /* apply a selector to logo box because logo was not working well */
-.logo-box:hover > .logo{
+/* .logo-box:hover > .logo{
     animation: moveInRight 1s ease-out;
-}
+} */
 
 /* top and left are used to get the x and y coordinate. 
 50% from top of screen and 50% of left of screen gets the middle of screen */
