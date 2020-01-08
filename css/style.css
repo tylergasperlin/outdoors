@@ -38,6 +38,11 @@ body {
     height: 35px;
 }
 
+/* apply a selector to logo box because logo was not working well */
+.logo-box:hover > .logo{
+    animation: moveInRight 1s ease-out;
+}
+
 /* top and left are used to get the x and y coordinate. 
 50% from top of screen and 50% of left of screen gets the middle of screen */
 
@@ -55,6 +60,9 @@ body {
 .heading-primary{
     color: white;
     text-transform: uppercase;
+    /* this is a fix for a weird css bug where the class will move up slightly after complete 
+    to its final resting place */
+    backface-visibility: hidden;
 }
 
 /* span is in line element */
@@ -63,6 +71,13 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* these are built in functions that can be called on the class */
+    /* ease out is slower in the end faster in beginning */
+    animation-timing-function: ease-out; 
+    /* animation-delay: 3s; */ 
+    /* animation-iteration-count: 3; */
 }
 
 .heading-primary-sub{
@@ -70,4 +85,58 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 }
+
+/* move in left to animatate classs */
+@keyframes moveInLeft {
+    /* where the text will start on the beginning of the animation */
+    0% {
+        opacity: 0;
+        /* transform: translateX(-100px) */
+        transform: translateX(-100px) rotate(-50deg)
+
+    }
+    /* can get some crazy stuff going on 
+    60% {
+        transform: rotate(180deg);
+    } */
+
+    /* use 20 here to get it to go right of 0 (initial state) by 20 px */
+    80% {
+        transform: translateX(10px)
+
+    }
+
+    /* translate 0 to get it to look as it is now without the transform applied */
+    100%{
+        opacity: 1;
+        transform: translate(0) rotate(360deg)
+    }
+}
+
+
+/* move in left to animatate classs */
+@keyframes moveInRight {
+    /* where the text will start on the beginning of the animation */
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+    /* use 20 here to get it to go right of 0 (initial state) by 20 px */
+    80% {
+        transform: translateX(-10px)
+
+    }
+
+    /* translate 0 to get it to look as it is now without the transform applied */
+    100%{
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+/* 
+command d to edit multiple class properties
+command and select multiple places to select multiiple places to type */
