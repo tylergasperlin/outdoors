@@ -54,6 +54,7 @@ body {
     top: 40%;  
     left: 50%; 
     transform: translate(-50%, -50%);
+    text-align: center;
 
 }
 
@@ -63,6 +64,7 @@ body {
     /* this is a fix for a weird css bug where the class will move up slightly after complete 
     to its final resting place */
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 /* span is in line element */
@@ -96,7 +98,7 @@ body {
     0% {
         opacity: 0;
         /* transform: translateX(-100px) */
-        transform: translateX(-100px) rotate(-50deg)
+        transform: translateX(-100px) 
 
     }
     /* can get some crazy stuff going on 
@@ -113,7 +115,7 @@ body {
     /* translate 0 to get it to look as it is now without the transform applied */
     100%{
         opacity: 1;
-        transform: translate(0) rotate(360deg)
+        transform: translate(0)
     }
 }
 
@@ -123,11 +125,11 @@ body {
     /* where the text will start on the beginning of the animation */
     0% {
         opacity: 0;
-        transform: translateX(100px)
+        transform: translateX(-100px)
     }
     /* use 20 here to get it to go right of 0 (initial state) by 20 px */
     80% {
-        transform: translateX(-10px)
+        transform: translateX(10px)
 
     }
 
@@ -140,3 +142,36 @@ body {
 /* 
 command d to edit multiple class properties
 command and select multiple places to select multiiple places to type */
+
+/* link is the pseudo class  */
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+
+    /* all properties will be animated */
+    /* use short hand for duration of .2s  all .2s */
+    transition: all .2s;
+
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* this property takes a bunch of values 0 = offset x direction, 10 epsilon offset down, 20 blur shadow */
+    /* rgba is black with .2 opacity: ; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white{
+    background-color: white;
+    color: #777
+}
+
