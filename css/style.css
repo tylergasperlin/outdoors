@@ -125,12 +125,28 @@ body {
     /* where the text will start on the beginning of the animation */
     0% {
         opacity: 0;
-        transform: translateX(-100px)
+        transform: translateX(100px)
     }
     /* use 20 here to get it to go right of 0 (initial state) by 20 px */
     80% {
-        transform: translateX(10px)
+        transform: translateX(-10px)
 
+    }
+
+    /* translate 0 to get it to look as it is now without the transform applied */
+    100%{
+        opacity: 1;
+        transform: translate(0)
+    }
+}
+
+
+@keyframes moveInBottom {
+    /* where the text will start on the beginning of the animation */
+    0% {
+        opacity: 0;
+        /* epsilon is y axis from top to bottom */
+        transform: translateY(30px)
     }
 
     /* translate 0 to get it to look as it is now without the transform applied */
@@ -155,7 +171,7 @@ command and select multiple places to select multiiple places to type */
     /* all properties will be animated */
     /* use short hand for duration of .2s  all .2s */
     transition: all .2s;
-
+    position: relative;
 }
 
 .btn:hover {
@@ -175,3 +191,37 @@ command and select multiple places to select multiiple places to type */
     color: #777
 }
 
+.btn::after{
+    /* must speceify content and display. content can be blank if none but must be listed */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+
+}
+
+.btn-white::after{
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    /* fade out */
+    opacity: 0;
+
+}
+
+.btn-animated{
+    /* moveinbottom is the animation function */
+    /* .5s duration ease out timing and .75 delay */
+    animation: moveInBottom .5s ease-out .75s;
+    /* makes it so the button does not get rendered in its original place  apply animations of 0% before animation runs*/
+    /*ie move in bottom is applied before animation starts */
+    animation-fill-mode: backwards;
+}
