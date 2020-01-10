@@ -1,0 +1,71 @@
+BOXES
+use border-box instead of height and width
+box-sizing: border-box
+height and width defined for entire bosx instead of just for the content area
+
+Block Level BOXES
+elements formatted visually as blocks
+100% of parents width (occupy as much as possible)
+vertically one after another
+display:
+
+inline block BOXES
+a mix of block and inline
+occupies only content space
+no line breaks
+box model applies as shwon
+
+Inline BOXES
+content is distrubted in lines
+occupies only contents space
+no line breaks
+no height and width available
+paddings and margins only horizontal left and right
+
+
+POSITIONING SCHEME
+1 normal flow
+defualt positioning SCHEME
+not floated
+not absolute positioned
+elements laid out according to their source order
+
+position:relative
+
+2 floats
+elements removed from the normal flow and moved to the left/right of the containing box
+text and inline elements will wrap around the floated elements
+the container will not adjust its height to the elements
+
+
+float: left
+float: right
+
+3 absolute positioning
+element is removed from the normal flow
+no impact on surrounding content or elements - can even overlap 
+we use top bottom left and right to offset the element from its relatively positioned container 
+
+position: absolute
+positon:fixed
+
+4 stacking context
+z-index  = higher z index on top
+opacity transform filter all also define stacking context 
+
+-------------
+css architecture 
+modular builing blocks
+held together by layout of page
+reuseable across project and between different projects
+independent allowing us to use them anywhere on the page
+
+BEM Style of Writing HTML/CSS 
+Block =  .block{}
+Element = .block__element{}
+Modifier = .block__element--modifier{}
+
+7-1 Pattern
+7 differnt folders for partial sass files
+1 main sass file to import all other files into
+a combiled css stylesheetß
