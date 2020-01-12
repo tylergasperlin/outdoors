@@ -1,0 +1,14 @@
+.row{
+    //standard thses days is 1140 px
+    //10px = 1 rem
+
+    //max width makes this adaptable
+    //if enough width on viewport use what we specifiy
+    max-width: $grid-width;
+    background-color: #eee;
+    //fiigure out our margins
+    //left and right margin will be the same
+    //use to center blocks inside block element //very common!!
+    margin: 0 auto;
+    margin-bottom: $gutter-vertical;
+}
