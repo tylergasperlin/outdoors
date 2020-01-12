@@ -5,7 +5,6 @@
     //max width makes this adaptable
     //if enough width on viewport use what we specifiy
     max-width: $grid-width;
-    background-color: #eee;
     //fiigure out our margins
     //left and right margin will be the same
     //use to center blocks inside block element //very common!!
@@ -27,7 +26,6 @@
     // *= is all
     // $= and that end with
     [class^="col-"] {
-        background-color: orangered;
         float: left;
 
         &:not(:last-child) {
