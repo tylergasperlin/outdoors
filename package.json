@@ -1,0 +1,22 @@
+{
+  "name": "outdoors",
+  "version": "1.0.0",
+  "description": "Landing page for outdoors",
+  "main": "index.js",
+  "scripts": {
+    "sassme": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerg509/outdoors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylerg509/outdoors/issues"
+  },
+  "homepage": "https://github.com/tylerg509/outdoors#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.0"
+  }
+}
