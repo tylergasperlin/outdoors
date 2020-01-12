@@ -69,3 +69,20 @@ Modifier = .block__element--modifier{}
 7 differnt folders for partial sass files
 1 main sass file to import all other files into
 a combiled css stylesheetß
+
+
+-----------
+BASIC RESPONSIVE DESIGN PATTERNS
+1) Fluid grids and layouts. Uses % rather than px for all layout
+lengths
+2) Flexible/Responsive Images. Images behave differently than
+text content and we need to ensure that they also adapt nicely
+to the current viewport. Use % rather than px, optimize width
+3) Media Queries. To change on certain viewports
+
+--------------------------
+
+Float Layout = left to right ; old
+Flexbox = left to right within rectangles ; new
+CSS Grid = 4 boxes different width ; new new
+
