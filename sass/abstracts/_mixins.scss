@@ -1,0 +1,10 @@
+
+
+//append pseduo element that clesrs floats
+@mixin clearfix {
+  &::after{
+      content:"";
+      display: table;
+      clear: both;
+  }  
+}
