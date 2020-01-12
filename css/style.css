@@ -1,29 +1,16 @@
-/* applied to all by default to ensure we start with clean slate */
-/* include after and before so all pseduo elements take the margin padding and box sizing properties set here */
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
-  /* automatically allow each box element to inherit. by default box does not inherit */
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
-  /* see specs where inherited is listed as no */
   box-sizing: inherit; }
 
 html {
-  /* 1 rem is 10 pixles now */
-  /* should set this on the html element so 1 rem is 10 px */
-  /* font-size: 10px; */
-  /* default font size is 16px
-  convert to percent so if user zooms in on page we will change the font size as well; */
   font-size: 62.5%; }
 
-/* project specific font properties */
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
   padding: 3rem; }
@@ -34,7 +21,6 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
-  /* https://bennettfeely.com/clippy/ */
   clip-path: polygon(0 0, 100% 0%, 100% 75vh, 0 100%); }
 
 .header__logo-box {
@@ -45,15 +31,6 @@ body {
 .header__logo {
   height: 3.5rem; }
 
-/* apply a selector to logo box because logo was not working well */
-/* .logo-box:hover > .logo{
-    animation: moveInRight 1s ease-out;
-} */
-/* top and left are used to get the x and y coordinate. 
-50% from top of screen and 50% of left of screen gets the middle of screen */
-/* transform translate is used to translate x and epsilon
--50% shifts half of width of element to the left
--50% shifts 50% of elements height to  the top */
 .header__text-box {
   position: absolute;
   top: 40%;
@@ -64,12 +41,9 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-  /* this is a fix for a weird css bug where the class will move up slightly after complete 
-    to its final resting place */
   backface-visibility: hidden;
   margin-bottom: 6rem; }
 
-/* span is in line element */
 .heading-primary--main {
   display: block;
   font-size: 6rem;
@@ -77,11 +51,7 @@ body {
   letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
-  /* these are built in functions that can be called on the class */
-  /* ease out is slower in the end faster in beginning */
-  animation-timing-function: ease-out;
-  /* animation-delay: 3s; */
-  /* animation-iteration-count: 3; */ }
+  animation-timing-function: ease-out; }
 
 .heading-primary--sub {
   display: block;
@@ -90,57 +60,36 @@ body {
   letter-spacing: 1.7rem;
   animation-name: moveInRight;
   animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* 'animation moveInRight 1s ease-out 'would be the same as the above */ }
+  animation-timing-function: ease-out; }
 
-/* move in left to animatate classs */
 @keyframes moveInLeft {
-  /* where the text will start on the beginning of the animation */
   0% {
     opacity: 0;
-    /* transform: translateX(-100px) */
     transform: translateX(-1rem); }
-  /* can get some crazy stuff going on 
-    60% {
-        transform: rotate(180deg);
-    } */
-  /* use 20 here to get it to go right of 0 (initial state) by 20 px */
   80% {
     transform: translateX(1rem); }
-  /* translate 0 to get it to look as it is now without the transform applied */
   100% {
     opacity: 1;
     transform: translate(0); } }
 
-/* move in left to animatate classs */
 @keyframes moveInRight {
-  /* where the text will start on the beginning of the animation */
   0% {
     opacity: 0;
     transform: translateX(1rem); }
-  /* use 20 here to get it to go right of 0 (initial state) by 20 px */
   80% {
     transform: translateX(-1rem); }
-  /* translate 0 to get it to look as it is now without the transform applied */
   100% {
     opacity: 1;
     transform: translate(0); } }
 
 @keyframes moveInBottom {
-  /* where the text will start on the beginning of the animation */
   0% {
     opacity: 0;
-    /* epsilon is y axis from top to bottom */
     transform: translateY(3rem); }
-  /* translate 0 to get it to look as it is now without the transform applied */
   100% {
     opacity: 1;
     transform: translate(0); } }
 
-/* 
-command d to edit multiple class properties
-command and select multiple places to select multiiple places to type */
-/* link is the pseudo class  */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -148,16 +97,12 @@ command and select multiple places to select multiiple places to type */
   padding: 15px 40px;
   display: inline-block;
   border-radius: 1rem;
-  /* all properties will be animated */
-  /* use short hand for duration of .2s  all .2s */
   transition: all 0.2s;
   position: relative;
   font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3rem);
-  /* this property takes a bunch of values 0 = offset x direction, 10 epsilon offset down, 20 blur shadow */
-  /* rgba is black with .2 opacity: ; */
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn:active {
@@ -169,7 +114,6 @@ command and select multiple places to select multiiple places to type */
   color: #777; }
 
 .btn::after {
-  /* must speceify content and display. content can be blank if none but must be listed */
   content: '';
   display: inline-block;
   height: 100%;
@@ -186,15 +130,10 @@ command and select multiple places to select multiiple places to type */
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
-  /* fade out */
   opacity: 0; }
 
 .btn--animated {
-  /* moveinbottom is the animation function */
-  /* .5s duration ease out timing and .75 delay */
   animation: moveInBottom 0.5s ease-out 0.75s;
-  /* makes it so the button does not get rendered in its original place  apply animations of 0% before animation runs*/
-  /*ie move in bottom is applied before animation starts */
   animation-fill-mode: backwards; }
 
 @media (max-width: 800px) {
