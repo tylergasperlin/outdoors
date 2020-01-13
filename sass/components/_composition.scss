@@ -1,0 +1,40 @@
+.composition{
+    position:relative;
+
+    &__photo{
+        width: 55%; //always have to define width of images - in % if possible
+        box-shadow: 0 1.5rem 40 rgba($color-black,  .4);
+        border-radius: 2px;
+        position: absolute; //these elements will be place according to reference. reference is the first parent that has position set
+        z-index: 10;
+        transform: all .2s;
+        outline-offset: 2rem; // this create a space between border and image
+        &--p1{
+            left: 0; //start at left side of container
+            top: -2rem
+        }
+        &--p2{
+            right: 0; //start at right side of container
+            top: 2rem
+        }
+        &--p3{
+            left: 20%;
+            top: 10rem
+        }
+
+        &:hover{
+            outline: 1.5rem solid $color-primary; //for border- use outline instead of border so we can use outline offset==not avail in border property
+            transform: scale(1.05) translateY(-.5rem); //translatey means come up
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 20; //display on top
+        }
+    }
+
+
+    &:hover &__photo:not(:hover){
+        transform: scale(.93);
+    }
+
+    //composition:hover composition__photo:not(:hover){
+    //}
+}
