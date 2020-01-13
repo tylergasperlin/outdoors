@@ -1,7 +1,27 @@
-
-.section-about{
+.section-about {
     background-color: $color-grey-light-1;
     padding: 25rem 0;
     //we got this based on the polygon 95-75vh
     margin-top: -20vh;
+}
+
+.section-features {
+    padding: 20rem 0; //lots of space is trendy
+    background-image: linear-gradient(to right bottom,
+            rgba($color-primary-light, 0.8),
+            rgba($color-primary-dark, 0.8)),
+        url(../img/nat-4.jpg);
+        background-size: cover;
+
+    transform: skewY(-7deg); //could also use clip maybe?
+    margin-top: -12rem;
+
+    //child selector - select everything that is a chiuld of section-features
+
+    & > *{
+        transform: skewY(7deg); //skew content back so it is horizontal with the page
+
+    }
+
+    //.section-features
 }
