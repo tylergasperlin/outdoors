@@ -1,0 +1,44 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+    font-size: $default-font-size;
+    padding-left: 9rem;
+    //this gives it slanted edges
+    transform: skewX(-12deg);
+
+    & > * {
+
+    }
+    &__shape{
+        width: 15rem; //required
+        height: 15rem; //required
+        float: left; //required
+        //size, position y position x
+        //50% of parent element 50% center horizontal 50% center vertical
+        //create the text wrap around circle
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        float: left;
+        //create the circle
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        //use  transform for floated elements
+        //we set -3 to be equal to half of the padding of 6
+        transform: translateX(-2rem) skewX(12deg);
+
+
+    }
+
+    &__img{
+        height: 100%
+    }
+
+    &__text {
+        transform: skewX(12deg);
+
+    }
+}
