@@ -1,21 +1,25 @@
 .card {
+    //functionality 
     perspective: 150rem;
     -moz-perspective: 150rem;
     position: relative;
-    height: 50rem;
+    height: 53rem; //entire card
+
     &__side {
         background-color: orangered;
-        color: #fff;
-        font-size: 2rem;
+        font-size: 2rem; 
 
-        height: 50rem;
+        height: 53rem; //sides
         transition: all .8s ease;
         position: absolute; //takes element out of its natural flow so we have to specify height
         top: 0;
         left: 0;
         width: 100%;
         backface-visibility: hidden;
+        //when we add image it cuts off the rounded corner so we used overflow to ensure
+        //that the picture does not cut off the corners
         border-radius: 3px;
+        overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
 
@@ -25,9 +29,9 @@
         }
 
         &--back {
-            transform: rotateY(180deg);
+            transform: rotateY(-180deg);
 
-            &-1{
+            &-1 {
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
 
             }
@@ -42,6 +46,113 @@
 
     &:hover &__side--back {
         transform: rotateY(0)
+    }
+
+    //front side style
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        //allows us to blend the image and linear gradient
+        //photoshop like blending
+        background-blend-mode: screen;
+        //could use circle polygon etc to clip picture
+        //webkit ensures we can use modern css like clippath on all browsers
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        &--1 {
+            //unsplash for free images
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: url(../../img//nat-5.jpg);
+        }
+
+        &--3 {
+            background-image: url(../../img/nat-5.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+
+
+
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        //our text is long and overflows to two lines
+        //this allows us to treat each line of text as its own element
+        //padding is applied to beginning and end of each line of text
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-secondary-light, .85), 
+            rgba($color-secondary-dark, .85));
+        }
+    }
+
+    &__details{
+        padding: 3rem;
+        
+        ul{
+            //standard t ouse lisstyle
+            list-style: none;
+            width: 80%;
+            //0 top and bottm and width  and height auto
+            margin: 0 auto;
+
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child){
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+    &__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+
+    }
+
+    &__price-box{
+        color: $color-white;
+        margin: 8rem;
+        text-align: center;
+    }
+
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+
+
+    }
+
+    &__price-value{
+        font-size: 6rem;
+        font-weight:100;
+
     }
 
 }
