@@ -14,6 +14,7 @@
         border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
+        transition: all .3s;
 
 
         &:focus {
@@ -24,7 +25,7 @@
         }
 
         //browser valides form for you/ name and email
-        &:focus:invalid{
+        &:focus:invalid {
             border-bottom: 3px solid $color-secondary-dark;
         }
 
@@ -34,7 +35,7 @@
             color: $color-grey-dark-2;
         }
 
-        
+
 
 
     }
@@ -53,11 +54,38 @@
     //__label has to be after __input in the ex below
 
     //general sibling selector (can have elements inbetween __input and __label) = ~ 
-    &__input:placeholder-shown + &__label{
+    &__input:placeholder-shown+&__label {
         opacity: 0;
         visibility: hidden;
         transform: translateY(-4rem);
-    }   
+    }
 
-    
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+    }
+
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+
+        &::after {
+
+        }
+    }
+
+
 }

@@ -417,7 +417,8 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   width: 90%;
-  display: block; }
+  display: block;
+  transition: all .3s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -439,6 +440,24 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0; }
 
 .row {
   max-width: 114rem;
