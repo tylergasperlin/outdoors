@@ -1,0 +1,9 @@
+
+.popup{
+    background-color: $color-black;
+    position: absolute;
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5000;
+}
