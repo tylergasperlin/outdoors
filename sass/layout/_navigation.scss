@@ -13,6 +13,8 @@
         border-radius: 50%;
         z-index: 2000;
         box-shadow: 0 1rem 3rem rgba($color-black,  1.0);
+        text-align: center;
+        cursor: pointer;
 
     }
 
@@ -90,6 +92,7 @@
         }
     }
 
+    //functionality
     // ~ is a sibling selector
     //not adjacent sibling 
     //it is a general sibling selector since we specifiy the sibling
@@ -100,5 +103,59 @@
     &__checkbox:checked ~ &__nav{
         opacity: 1;
         width: 100%;
+    }
+
+    //icon
+    &__icon{
+        position: relative;
+        margin-top: 3.5rem;
+        &,
+        &::before,
+        &::after{
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+
+        }
+
+
+        &::before,
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before{top: -.8rem; }
+        &::after{top: .8rem}
+    }
+
+    //icon is a child of button
+    &__button:hover &__icon::before{
+        top: -1rem;
+    }
+
+    //icon is a child of button
+    &__button:hover &__icon::after{
+        top: 1rem;
+    }
+
+    //we can use + because we are selecting an adjacent sibling
+    &__checkbox:checked + &__button &__icon{
+        background-color: transparent;
+    }
+
+    //we can use + because we are selecting an adjacent sibling
+    &__checkbox:checked + &__button &__icon::before{
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    //we can use + because we are selecting an adjacent sibling
+    &__checkbox:checked + &__button &__icon::after{
+        top: 0;
+        transform: rotate(-135deg);
     }
 }
